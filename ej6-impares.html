@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Impares</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="caja">
+    <h1>Suma de impares del 1 al 100</h1>
+    <button onclick="sumarImpares()">Calcular</button>
+    <p id="resultado"></p>
+    <a class="volver" href="index.html">⬅ Volver al menú</a>
+  </div>
+
+  <script>
+    function sumarImpares() {
+      let i = 1;
+      let suma = 0;
+      while (i <= 100) {
+        if (i % 2 !== 0) {
+          suma += i;
+        }
+        i++;
+      }
+      document.getElementById("resultado").innerText = "La suma de los impares es: " + suma;
+    }
+  </script>
+</body>
+</html>

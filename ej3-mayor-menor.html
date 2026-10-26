@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mayor a menor</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="caja">
+    <h1>Ordenar 3 números de mayor a menor</h1>
+    <button onclick="ordenar()">Pedir números</button>
+    <p id="resultado"></p>
+    <a class="volver" href="index.html">⬅ Volver al menú</a>
+  </div>
+
+  <script>
+    function ordenar() {
+      let a = parseFloat(prompt("Primer número:"));
+      let b = parseFloat(prompt("Segundo número:"));
+      let c = parseFloat(prompt("Tercer número:"));
+      let numeros = [a, b, c];
+      numeros.sort(function (x, y) { return y - x; });
+      document.getElementById("resultado").innerText = "De mayor a menor: " + numeros.join(", ");
+    }
+  </script>
+</body>
+</html>

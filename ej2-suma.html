@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Suma de positivos</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="caja">
+    <h1>Suma de números positivos</h1>
+    <p>Escribe números positivos. Para terminar, escribe 0 o un negativo.</p>
+    <button onclick="sumar()">Empezar</button>
+    <p id="resultado"></p>
+    <a class="volver" href="index.html">⬅ Volver al menú</a>
+  </div>
+
+  <script>
+    function sumar() {
+      let total = 0;
+      let numero;
+      do {
+        numero = parseFloat(prompt("Escribe un número positivo (0 o negativo para terminar):"));
+        if (numero > 0) {
+          total += numero;
+        }
+      } while (numero > 0);
+      document.getElementById("resultado").innerText = "La suma total es: " + total;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sueldo</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="caja">
+    <h1>Sueldo según antigüedad</h1>
+    <p>Sueldo base anual: 40,000 euros</p>
+    <button onclick="calcularSueldo()">Calcular</button>
+    <p id="resultado"></p>
+    <a class="volver" href="index.html">⬅ Volver al menú</a>
+  </div>
+
+  <script>
+    function calcularSueldo() {
+      let sueldo = 40000;
+      let anios = parseFloat(prompt("¿Cuántos años lleva en la empresa?"));
+      let aumento;
+
+      if (anios > 10) {
+        aumento = 0.10;
+      } else if (anios > 5) {
+        aumento = 0.07;
+      } else if (anios > 3) {
+        aumento = 0.05;
+      } else {
+        aumento = 0.03;
+      }
+
+      let nuevo = sueldo + sueldo * aumento;
+      document.getElementById("resultado").innerText =
+        "Años: " + anios + "\nAumento: " + (aumento * 100) + "%\nSueldo final: " + nuevo + " euros";
+    }
+  </script>
+</body>
+</html>

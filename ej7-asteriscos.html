@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Asteriscos</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="caja">
+    <h1>Asteriscos</h1>
+    <button onclick="dibujar()">Pedir número</button>
+    <p id="resultado"></p>
+    <a class="volver" href="index.html">⬅ Volver al menú</a>
+  </div>
+
+  <script>
+    function dibujar() {
+      let n = parseInt(prompt("¿Cuántos asteriscos quieres?"));
+      let texto = "";
+      for (let i = 1; i <= n; i++) {
+        texto += "*";
+      }
+      document.getElementById("resultado").innerText = texto;
+    }
+  </script>
+</body>
+</html>

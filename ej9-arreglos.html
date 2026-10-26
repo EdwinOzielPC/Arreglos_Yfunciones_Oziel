@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Arreglos</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="caja">
+    <h1>Arreglo de 10 países</h1>
+    <p id="arreglo"></p>
+    <button onclick="usarPop()">pop</button>
+    <button onclick="usarShift()">shift</button>
+    <button onclick="usarPush()">push</button>
+    <button onclick="usarUnshift()">unshift</button>
+    <button onclick="usarSplice()">splice</button>
+    <button onclick="usarDelete()">delete</button>
+    <button onclick="usarReverse()">reverse</button>
+    <button onclick="usarSort()">sort</button>
+    <button onclick="usarConcat()">concat</button>
+    <button onclick="usarJoin()">join</button>
+    <button onclick="usarLength()">length</button>
+    <button onclick="reiniciar()">Reiniciar</button>
+    <p id="resultado"></p>
+    <a class="volver" href="index.html">⬅ Volver al menú</a>
+  </div>
+
+  <script>
+    let paises = ["México", "Argentina", "Chile", "Colombia", "Perú", "Brasil", "España", "Francia", "Italia", "Japón"];
+
+    function mostrar(mensaje) {
+      document.getElementById("arreglo").innerText = "Arreglo: [" + paises.join(", ") + "]";
+      document.getElementById("resultado").innerText = mensaje;
+    }
+
+    function usarPop() {
+      let quitado = paises.pop();
+      mostrar("pop eliminó el último: " + quitado);
+    }
+    function usarShift() {
+      let quitado = paises.shift();
+      mostrar("shift eliminó el primero: " + quitado);
+    }
+    function usarPush() {
+      let nuevo = prompt("País a agregar al final:");
+      paises.push(nuevo);
+      mostrar("push agregó: " + nuevo);
+    }
+    function usarUnshift() {
+      let nuevo = prompt("País a agregar al inicio:");
+      paises.unshift(nuevo);
+      mostrar("unshift agregó: " + nuevo);
+    }
+    function usarSplice() {
+      paises.splice(2, 1, "Uruguay");
+      mostrar("splice quitó el elemento de la posición 2 y puso Uruguay");
+    }
+    function usarDelete() {
+      delete paises[1];
+      mostrar("delete borró la posición 1 (queda un espacio vacío)");
+    }
+    function usarReverse() {
+      paises.reverse();
+      mostrar("reverse invirtió el orden");
+    }
+    function usarSort() {
+      paises.sort();
+      mostrar("sort ordenó alfabéticamente");
+    }
+    function usarConcat() {
+      let otros = ["Canadá", "Cuba"];
+      paises = paises.concat(otros);
+      mostrar("concat unió el arreglo con Canadá y Cuba");
+    }
+    function usarJoin() {
+      mostrar("join: " + paises.join(" - "));
+    }
+    function usarLength() {
+      mostrar("length: el arreglo tiene " + paises.length + " posiciones");
+    }
+    function reiniciar() {
+      paises = ["México", "Argentina", "Chile", "Colombia", "Perú", "Brasil", "España", "Francia", "Italia", "Japón"];
+      mostrar("Arreglo reiniciado");
+    }
+
+    mostrar("Prueba los botones");
+  </script>
+</body>
+</html>

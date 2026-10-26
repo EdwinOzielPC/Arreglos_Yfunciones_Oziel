@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Votación</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="caja">
+    <h1>Votación por sección</h1>
+    <form id="formulario">
+      <label>¿De qué sección eres?</label><br>
+      <select id="seccion">
+        <option value="norte">Norte</option>
+        <option value="sur">Sur</option>
+        <option value="centro">Centro</option>
+      </select><br>
+      <label>Tu voto:</label><br>
+      <select id="voto">
+        <option>Candidato A</option>
+        <option>Candidato B</option>
+        <option>Candidato C</option>
+      </select><br>
+      <button type="submit">Votar</button>
+    </form>
+    <p id="resultado"></p>
+    <a class="volver" href="index.html">⬅ Volver al menú</a>
+  </div>
+
+  <script>
+    let votos = { norte: 0, sur: 0, centro: 0 };
+
+    function votar(seccion, candidato) {
+      let mensaje;
+      switch (seccion) {
+        case "norte":
+          votos.norte++;
+          mensaje = "Voto de la zona Norte para " + candidato;
+          break;
+        case "sur":
+          votos.sur++;
+          mensaje = "Voto de la zona Sur para " + candidato;
+          break;
+        case "centro":
+          votos.centro++;
+          mensaje = "Voto de la zona Centro para " + candidato;
+          break;
+      }
+      document.getElementById("resultado").innerText =
+        mensaje + "\nNorte: " + votos.norte + " | Sur: " + votos.sur + " | Centro: " + votos.centro;
+    }
+
+    document.getElementById("formulario").addEventListener("submit", function (e) {
+      e.preventDefault();
+      votar(document.getElementById("seccion").value, document.getElementById("voto").value);
+    });
+  </script>
+</body>
+</html>

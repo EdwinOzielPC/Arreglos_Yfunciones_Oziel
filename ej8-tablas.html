@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tablas</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="caja">
+    <h1>Tablas de multiplicar del 1 al 10</h1>
+    <button onclick="generar()">Mostrar tablas</button>
+    <div id="resultado"></div>
+    <a class="volver" href="index.html">⬅ Volver al menú</a>
+  </div>
+
+  <script>
+    function generar() {
+      let html = "";
+      for (let i = 1; i <= 10; i++) {
+        html += "<h3>Tabla del " + i + "</h3>";
+        for (let j = 1; j <= 10; j++) {
+          html += i + " x " + j + " = " + (i * j) + "<br>";
+        }
+      }
+      document.getElementById("resultado").innerHTML = html;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Importe neto</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="caja">
+    <h1>Importe bruto y neto</h1>
+    <button onclick="calcular()">Ingresar importe</button>
+    <p id="resultado"></p>
+    <a class="volver" href="index.html">⬅ Volver al menú</a>
+  </div>
+
+  <script>
+    function calcular() {
+      let bruto = parseFloat(prompt("Escribe el importe bruto:"));
+      let impuesto;
+      if (bruto > 15000) {
+        impuesto = 0.16;
+      } else {
+        impuesto = 0.10;
+      }
+      let neto = bruto - bruto * impuesto;
+      document.getElementById("resultado").innerText =
+        "Bruto: " + bruto + "\nImpuesto: " + (impuesto * 100) + "%\nNeto: " + neto;
+    }
+  </script>
+</body>
+</html>

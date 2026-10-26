@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú desplegable</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="caja">
+    <h1>Menú desplegable</h1>
+    <button id="botonMenu">☰ Ingresar ▼</button>
+
+    <form id="login" style="display:none;">
+      <h3>Ingreso</h3>
+      <input type="text" id="usuario" placeholder="Usuario"><br>
+      <input type="password" id="clave" placeholder="Contraseña"><br>
+      <button type="submit">Entrar</button>
+    </form>
+
+    <p id="resultado"></p>
+    <a class="volver" href="index.html">⬅ Volver al menú</a>
+  </div>
+
+  <script>
+    let boton = document.getElementById("botonMenu");
+    let formulario = document.getElementById("login");
+
+    boton.addEventListener("click", function () {
+      if (formulario.style.display === "none") {
+        formulario.style.display = "block";
+      } else {
+        formulario.style.display = "none";
+      }
+    });
+
+    formulario.addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("resultado").innerText =
+        "Bienvenido, " + document.getElementById("usuario").value;
+    });
+  </script>
+</body>
+</html>
